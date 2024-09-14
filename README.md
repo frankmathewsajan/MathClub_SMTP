@@ -2,6 +2,40 @@
 
 The SMTP Mail project is a web-based email application developed using Django. It allows users to send, receive, and view emails. This project demonstrates basic web development skills, including form handling, state management, and email processing using Django.
 
+## Architecture Design Diagram
+
+```mermaid
+graph TD
+    A[Users] -->|Interact via| B[Web Browser Frontend]
+    B <-->|HTTP Requests/Responses| C[Django Application]
+    C -->|Renders| D[Templates]
+    C -->|Processes Data| E[Views]
+    E <-->|CRUD Operations| F[Models]
+    E -->|Form Handling| G[Forms]
+    C -->|Routes Requests| H[URLs]
+    C -->|Serves| I[Static Files]
+    C -->|Manages| J[Media Files]
+    F <-->|Data Storage/Retrieval| K[Database SQLite/PostgreSQL/MySQL]
+    L[Django Admin] -->|Manages| K
+    L -->|Uses| C
+```
+
+This diagram illustrates the components and interactions within the SMTP Mail project:
+
+- **Users** interact with the system through a web interface.
+- **Web Browser / Frontend** sends requests to and receives responses from the Django application.
+- **Django Application** contains:
+    - **Views** handle HTTP requests and responses.
+    - **Models** define the data schema for emails and user information.
+    - **Forms** manage user input for sending and composing emails.
+    - **URLs** route incoming requests to the appropriate views.
+    - **Templates** render HTML responses.
+- **Database** (SQLite/PostgreSQL/MySQL) stores user data and email information.
+- **Static Files** (CSS, JavaScript, images) and **Media Files** (user-uploaded content) are served by the Django application.
+- **Django Admin** provides an interface for administrators to manage users and emails.
+
+This architecture ensures a clear separation of concerns and efficient data flow within the SMTP Mail project.
+
 ## Features
 
 - **Compose Email**: Users can create and send new emails.
@@ -21,37 +55,37 @@ The SMTP Mail project is a web-based email application developed using Django. I
 
 ### Installation Steps
 
-1. **1. Clone the Repository**
+1. **Clone the Repository and Navigate to `smtp` folder**
     
     ```bash
-    git clone &lt;repository-url&gt;
-    cd mail
+    git clone https://github.com/frankmathewsajan/MathClub_SMTP.git
+    cd smtp
     ```
     
-2. **2. Set Up Virtual Environment**
+2. **Set Up Virtual Environment (Alternative to Dockerization)**
     
     ```bash
     python -m venv venv
     venv\Scripts\activate # On Linux use `source venv/bin/activate`
     ```
     
-3. **3. Install Dependencies**
+3. **Install Dependencies**
     
     ```bash
     pip install -r requirements.txt
     ```
     
-4. **4. Set Up Database**
+4. **Set Up Database**
     
     ```bash
     python manage.py migrate
     ```
     
-5. **5. Login  (Optional)**
+5. **Login** 
     
     You may use `frankmathewsajan@gmail.com` with password `1234567890` for login, or register a user yourself.
     
-6. **6. Run the Application**
+6. **Run the Application**
     
     ```python
     python manage.py runserver
@@ -87,7 +121,7 @@ The SMTP Mail project is a web-based email application developed using Django. I
 ## Code Structure
 
 - **`manage.py`**: Django's command-line utility for administrative tasks.
-- **`mail_project/`**: Directory containing Django project settings and configuration.
+- **`project3/`**: Directory containing Django project settings and configuration.
     - **`settings.py`**: Configuration settings for the Django project.
     - **`urls.py`**: URL declarations for the project.
     - **`wsgi.py`**: WSGI configuration for the project.
