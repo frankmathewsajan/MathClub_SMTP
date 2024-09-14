@@ -36,7 +36,41 @@ This diagram illustrates the components and interactions within the SMTP Mail pr
 
 This architecture ensures a clear separation of concerns and efficient data flow within the SMTP Mail project.
 
-## Features
+### 1. Working Application
+
+Our application functions as intended and meets most of the requirements. We tested various scenarios to ensure performance.
+
+### 2. Graphical User Interface (GUI)
+
+We created an intuitive interface. The design aligns with modern web standards, allowing users to navigate and use email functions easily.
+
+### 3. Architecture Design
+
+We planned our architecture for clarity, as shown in our Design Diagram. Our system accommodates scalability and reliability for future growth.
+
+### 4. Dockerization & Deployment
+
+Our current setup uses a virtual environment for local deployment and testing. It works as DOcker alternative for python programs.
+
+### 5. Approach and Problem-Solving
+
+We structured our approach with clear separation of concerns in the Django application. Our documentation covers logic and implementation details. Our approach demonstrates understanding of web application development principles.
+
+### Additional Notes
+
+We used Git for version control and Whatsapp Group for team communication.
+
+### Areas for Future Enhancement
+
+We identified areas to improve our project:
+
+- Implement Dockerization for large deployment (we used `venv` for this prototype project)
+- Explore cloud deployment options
+- Add advanced features like email attachments, filtering, and an address book
+
+We aim to incorporate these enhancements in future iterations.
+
+## Current Features
 
 - **Compose Email**: Users can create and send new emails.
 - **Inbox**: Users can view received emails.
@@ -51,9 +85,7 @@ This architecture ensures a clear separation of concerns and efficient data flow
 - HTML/CSS for frontend
 - SQLite (or another database) for storing emails
 
-## Installation
-
-### Installation Steps
+## Installation Steps
 
 1. **Clone the Repository and Navigate to `smtp` folder**
     
