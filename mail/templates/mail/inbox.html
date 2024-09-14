@@ -1,0 +1,53 @@
+{% extends "mail/layout.html" %}
+{% load static %}
+
+{% block body %}
+<div class="container mt-3">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3>{{ request.user.email }}</h3>
+        <div>
+            <button class="btn btn-sm btn-outline-primary me-2" id="inbox">Inbox</button>
+            <button class="btn btn-sm btn-outline-primary me-2" id="compose">Compose</button>
+            <button class="btn btn-sm btn-outline-primary me-2" id="sent">Sent</button>
+            <button class="btn btn-sm btn-outline-primary me-2" id="archived">Archived</button>
+            <a class="btn btn-sm btn-outline-primary" href="{% url 'logout' %}">Log Out</a>
+        </div>
+    </div>
+    <hr>
+
+    <div id="emails-view" class="mb-3">
+        <!-- Emails view will be injected here -->
+    </div>
+
+    <div id="email-view" class="mb-3">
+        <!-- Single email view will be injected here -->
+    </div>
+
+    <div id="compose-view" class="card p-4">
+        <h3 class="mb-4">New Email</h3>
+        <form id="compose-form">
+            <div class="mb-3">
+                <label for="compose-from" class="form-label">From</label>
+                <input id="compose-from" class="form-control" type="text" value="{{ request.user.email }}" disabled>
+            </div>
+            <div class="mb-3">
+                <label for="compose-recipients" class="form-label">To</label>
+                <input id="compose-recipients" class="form-control" placeholder="Recipient email">
+            </div>
+            <div class="mb-3">
+                <label for="compose-subject" class="form-label">Subject</label>
+                <input id="compose-subject" class="form-control" placeholder="Subject">
+            </div>
+            <div class="mb-3">
+                <label for="compose-body" class="form-label">Body</label>
+                <textarea id="compose-body" class="form-control" placeholder="Body"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'mail/inbox.js' %}"></script>
+{% endblock %}

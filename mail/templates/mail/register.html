@@ -1,0 +1,50 @@
+{% extends "mail/layout.html" %}
+
+{% block body %}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-body p-4">
+                    <h2 class="text-center mb-4">Register</h2>
+
+                    {% if message %}
+                    <div class="alert alert-info text-center">
+                        {{ message }}
+                    </div>
+                    {% endif %}
+
+                    <form action="{% url 'register' %}" method="post">
+                        {% csrf_token %}
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input class="form-control" type="email" id="email" name="email" placeholder="Email Address" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input class="form-control" type="password" id="password" name="password" placeholder="Password" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="confirmation" class="form-label">Confirm Password</label>
+                            <input class="form-control" type="password" id="confirmation" name="confirmation" placeholder="Confirm Password" required>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-dark btn-block">Register</button>
+                        </div>
+                    </form>
+
+                    <div class="text-center mt-3">
+                        Already have an account? <a href="{% url 'login' %}" class="text-decoration-none">Log In here</a>.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
